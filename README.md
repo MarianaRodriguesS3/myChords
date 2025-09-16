@@ -23,5 +23,10 @@ O **my Chords** é um aplicativo que exibe letras e cifras de músicas. Através
 
 - Frontend: React + Vite  
 - Backend: Node.js + Express  
-- API para servir os arquivos `.txt` com letras e cifras  
+- API para servir os arquivos `.txt` com letras e cifras
+
+  ## Melhorias
+
+  - verificar o objeto songs no frontend.
+  - testar que o crud no backend
 
