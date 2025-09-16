@@ -1,12 +1,27 @@
-# React + Vite
+# my Chords
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto frontend em **React + Vite** e backend em **Node.js + Express**.
 
-Currently, two official plugins are available:
+## Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O **my Chords** é um aplicativo que exibe letras e cifras de músicas. Através de uma API que armazena arquivos `.txt` com o conteúdo das músicas, ele permite:
 
-## Expanding the ESLint configuration
+- **Página Home**:  
+  - Barra de pesquisa de músicas  
+  - Campo com sugestões de músicas  
+  - Histórico das últimas músicas acessadas  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Página Minha Playlist**:  
+  - Exibe links das músicas adicionadas à playlist  
+
+- **Comportamento ao clicar em qualquer link** (seja em sugestões, histórico ou minha playlist):  
+  - Exibe a letra e cifra da música selecionada  
+  - Mostra botão para adicionar a música na playlist
+  - Ao clicar no botão, a música é adicionada à playlist e um link para ela é criado na página Minha Playlist para acesso rápido  
+
+## Tecnologias
+
+- Frontend: React + Vite  
+- Backend: Node.js + Express  
+- API para servir os arquivos `.txt` com letras e cifras  
+
