@@ -17,11 +17,6 @@ build/
 # Vite cache (caso use Vite)
 .vite/
 
-# Environment variables
-.env
-.env.local
-.env.*.local
-
 # Editor folders
 .vscode/*
 !.vscode/extensions.json
