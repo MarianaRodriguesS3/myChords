@@ -9,33 +9,38 @@ function SongDetails() {
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
 
- useEffect(() => {
-  fetch("http://localhost:3001/api/songs")
-    .then((res) => {
-      if (!res.ok) throw new Error("Erro ao carregar músicas");
-      return res.json();
-    })
-    .then((data) => {
-      const song = data.find((s) => s.id === id);
-      if (!song) throw new Error("Música não encontrada");
-      setSongInfo(song);
-      
-      return fetch(`http://localhost:3001/api/songs/${id}/content`);
-    })
-    .then((res) => {
-      if (!res.ok) throw new Error("Essa música ainda não está disponível");
-      return res.text();
-    })
-    .then((text) => {
-      try {
-        const maybeJson = JSON.parse(text);
-        setContent(maybeJson.content || text);
-      } catch {
-        setContent(text);
-      }
-    })
-    .catch((err) => setError(err.message));
-}, [id]);
+  useEffect(() => {
+    // URL base da API (do .env)
+    const API_BASE = import.meta.env.VITE_API_URL;
+
+    // 1. Busca a lista de músicas
+    fetch(`${API_BASE}/api/songs`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao carregar músicas");
+        return res.json();
+      })
+      .then((data) => {
+        const song = data.find((s) => s.id === id);
+        if (!song) throw new Error("Música não encontrada");
+        setSongInfo(song);
+
+        // 2. Busca o conteúdo da música
+        return fetch(`${API_BASE}/api/songs/${id}/content`);
+      })
+      .then((res) => {
+        if (!res.ok) throw new Error("Essa música ainda não está disponível");
+        return res.text();
+      })
+      .then((text) => {
+        try {
+          const maybeJson = JSON.parse(text);
+          setContent(maybeJson.content || text);
+        } catch {
+          setContent(text);
+        }
+      })
+      .catch((err) => setError(err.message));
+  }, [id]);
 
   const handleAddToPlaylist = (song) => {
     const saved = localStorage.getItem("playlist");

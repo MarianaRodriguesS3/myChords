@@ -14,7 +14,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/songs")
+    fetch(`${import.meta.env.VITE_API_URL}/api/songs`)
       .then((res) => res.json())
       .then((data) => setSongs(data))
       .catch((err) => console.error("Erro ao buscar músicas:", err));
