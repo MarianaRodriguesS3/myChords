@@ -29,4 +29,7 @@ O **my Chords** é um aplicativo que exibe letras e cifras de músicas. Através
 
   - verificar o objeto songs no frontend.
   - testar que o crud no backend
+  - permitir usuario fazer login
+  - salvar suas musicas na playlist independente em qual maquina o usuário acessar
+  - tornar o aplicativo instalável
 
